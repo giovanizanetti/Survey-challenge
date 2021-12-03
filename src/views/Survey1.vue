@@ -3,7 +3,7 @@
     <Card v-if="!finishedAnswering">
       <Questions>
         <template v-slot:quote>
-          <img :src="questions[imgIndex].img" alt="Master Splinter quote" />
+          <img :src="questions[imgIndex].img" :alt="questions[imgIndex].author" />
         </template>
         <template v-slot:vote>
           <Vote @select="displayNextQuote" />
@@ -45,8 +45,6 @@ export default {
   methods: {
     displayNextQuote() {
       this.imgIndex++
-      console.log('imgage Index', this.imgIndex + 1)
-      console.log(this.questions.length)
     },
     ...mapMutations({
       finish: 'finishAnswering',

@@ -1,8 +1,11 @@
 <template>
   <div>
     <Card v-if="!finishedAnswering">
-      <Questions @select="displayNextQuote">
-        <img :src="questions[imgIndex].img" alt="Master Splinter quote" />
+      <Questions>
+        <template v-slot:quote>
+          <img :src="questions[imgIndex].img" :alt="questions[imgIndex].author" />
+        </template>
+        <template v-slot:vote><Rate /></template>
       </Questions>
     </Card>
     <Card v-else>
@@ -14,11 +17,12 @@
 <script>
 import Card from '../components/Card.vue'
 import Questions from '../components/Questions.vue'
+import Rate from '../components/Rate.vue'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
-  name: 'Survey1',
-  components: { Card, Questions },
+  name: 'Survey2',
+  components: { Card, Questions, Rate },
   data() {
     return {
       imgIndex: 0,
@@ -32,15 +36,13 @@ export default {
     },
   },
   computed: mapState({
-    questions: (state) => [...state.survey1.questions],
-    finishedAnswering: (state) => state.survey1.answered,
+    questions: (state) => [...state.survey2.questions],
+    finishedAnswering: (state) => state.survey2.answered,
   }),
 
   methods: {
     displayNextQuote() {
       this.imgIndex++
-      console.log('imgage Index', this.imgIndex + 1)
-      console.log(this.questions.length)
     },
     ...mapMutations({
       finish: 'finishAnswering',
