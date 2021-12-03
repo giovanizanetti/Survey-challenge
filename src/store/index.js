@@ -5,11 +5,38 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    survey1: {
+      answered: false,
+      questions: [
+        {
+          author: 'Dumbledore',
+          img: require('@/assets/img_statement_1.png'),
+          id: 1,
+        },
+        {
+          author: 'Snape',
+          img: require('@/assets/img_statement_2.png'),
+          id: 2,
+        },
+        {
+          author: 'Dr Who',
+          img: require('@/assets/img_statement_4.png'),
+          id: 2,
+        },
+
+        {
+          author: 'Master Splinter',
+          img: require('@/assets/img_statement_3.png'),
+          id: 4,
+        },
+      ],
+    },
   },
   mutations: {
+    finishAnswering(state) {
+      state.survey1.answered = true
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
+  actions: {},
+  modules: {},
 })

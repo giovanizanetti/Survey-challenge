@@ -1,23 +1,23 @@
 <template>
   <div class="card-container flex-column">
-    <div class="card-header">This is a inner Card</div>
+    <h1 class="card-header">How do you fell about these quotes?</h1>
     <div class="card-body flex-column">
       <div class="card-body__quote">
         <slot></slot>
       </div>
       <div class="card-body__vote">
         <div class="card-body__vote-option flex-column">
-          <button>
+          <button @click="$emit('select')">
             <img src="../assets/img_cat_happy.png" alt="happy" />
           </button>
           <span>Hiss</span>
         </div>
         <div class="card-body__vote-option flex-column">
-          <button><img src="../assets/img_cat_neutral.png" alt="neutral" /></button>
+          <button @click="$emit('select')"><img src="../assets/img_cat_neutral.png" alt="neutral" /></button>
           <span>Meau</span>
         </div>
         <div class="card-body__vote-option flex-column">
-          <button>
+          <button @click="$emit('select')">
             <img src="../assets/img_cat_supersad.png" alt="supersad" />
           </button>
           <span>Prr</span>
@@ -30,6 +30,11 @@
 <script>
 export default {
   name: 'Card',
+  methods: {
+    test() {
+      console.log('BLSA')
+    },
+  },
 }
 </script>
 
@@ -54,7 +59,10 @@ $color_blue: #17a6e0;
     opacity: 0.9;
     border-bottom: solid 1px gray;
     width: 100%;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
+    font-family: sans-serif;
+    font-size: 1rem;
+    margin: 0;
   }
   .card-body {
     padding: 1.4rem 2rem;
@@ -72,12 +80,13 @@ $color_blue: #17a6e0;
 
     .card-body__vote {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       padding: 2rem 2rem 4rem 2rem;
 
       .card-body__vote-option {
         display: flex;
         height: 6rem;
+        margin: 0 0.4rem;
 
         button {
           cursor: pointer;
