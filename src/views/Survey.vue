@@ -1,18 +1,22 @@
 <template>
   <div>
-    <Card v-if="!finishedAnswering" @select="displayNextQuote">
-      <img :src="questions[imgIndex].img" alt="Master Splinter quote" />
+    <Card v-if="!finishedAnswering">
+      <Questions @select="displayNextQuote">
+        <img :src="questions[imgIndex].img" alt="Master Splinter quote" />
+      </Questions>
     </Card>
+    <Card v-else>Finished</Card>
   </div>
 </template>
 
 <script>
 import Card from '../components/Card.vue'
+import Questions from '../components/Questions.vue'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'Survey',
-  components: { Card },
+  components: { Card, Questions },
   data() {
     return {
       imgIndex: 0,

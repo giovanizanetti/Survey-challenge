@@ -15,6 +15,10 @@ export default {
 </script>
 
 <style lang="scss">
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
 body {
   height: 100vh;
   display: flex;
