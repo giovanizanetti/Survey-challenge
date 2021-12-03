@@ -5,7 +5,9 @@
         <img :src="questions[imgIndex].img" alt="Master Splinter quote" />
       </Questions>
     </Card>
-    <Card v-else>Finished</Card>
+    <Card v-else>
+      <img src="../assets/img_control_tool_finish.svg" alt="checked" />
+    </Card>
   </div>
 </template>
 
@@ -15,7 +17,7 @@ import Questions from '../components/Questions.vue'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
-  name: 'Survey',
+  name: 'Survey1',
   components: { Card, Questions },
   data() {
     return {

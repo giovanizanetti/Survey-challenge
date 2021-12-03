@@ -1,16 +1,12 @@
 <template>
   <div id="app">
-    <Survey />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Survey from './views/Survey.vue'
 export default {
   name: 'app',
-  components: {
-    Survey,
-  },
 }
 </script>
 

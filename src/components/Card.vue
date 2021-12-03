@@ -32,7 +32,7 @@ $color_blue: #17a6e0;
 
   .card-header {
     opacity: 0.9;
-    border-bottom: solid 1px gray;
+    border-bottom: solid 1px #f2f2f2;
     width: 100%;
     padding: 1.5rem 0;
     font-family: sans-serif;
