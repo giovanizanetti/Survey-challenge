@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import Card from '../components/Card.vue'
-import Questions from '../components/Questions.vue'
-import Vote from '../components/Vote.vue'
+import Card from './Card.vue'
+import Questions from './Questions.vue'
+import Vote from './Vote.vue'
 import { mapState, mapMutations } from 'vuex'
 
 export default {

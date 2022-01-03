@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Survey1 from '../views/Survey1.vue'
+import Survey1 from '../components/Survey1.vue'
 export default {
   name: 'home',
   components: {

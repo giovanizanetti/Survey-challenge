@@ -2,7 +2,7 @@
   <div class="rate">
     <div v-for="index in 5" :key="index">
       <img
-        @click="rate(index)"
+        @click="handleClick(index)"
         @mouseover="handleMouseEnter(index)"
         @mouseout="handleMouseOut"
         :src="userRate >= index || hovered >= index ? solidStar : regularStar"
@@ -29,8 +29,11 @@ export default {
     handleMouseEnter(index) {
       this.hovered = index
     },
-    rate(index) {
+    handleClick(index) {
       this.userRate = index
+      this.$emit('select')
+      this.userRate = null
+      this.hovered = null
     },
     handleMouseOut() {
       this.hovered = null

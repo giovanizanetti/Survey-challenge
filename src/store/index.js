@@ -63,8 +63,9 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    finishAnswering(state) {
-      state.survey1.answered = true
+    finishAnswering(state, survey = 1) {
+      console.log(survey)
+      survey == 1 ? (state.survey1.answered = true) : (state.survey2.answered = true)
     },
   },
   actions: {},

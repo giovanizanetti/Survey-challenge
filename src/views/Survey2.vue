@@ -5,7 +5,7 @@
         <template v-slot:quote>
           <img :src="questions[imgIndex].img" :alt="questions[imgIndex].author" />
         </template>
-        <template v-slot:vote><Rate /></template>
+        <template v-slot:vote><Rate @select="displayNextQuote" /></template>
       </Questions>
     </Card>
     <Card v-else>
@@ -30,8 +30,8 @@ export default {
   },
   watch: {
     imgIndex() {
-      if (this.imgIndex + 1 == this.questions.length) {
-        this.finish()
+      if (this.imgIndex == this.questions.length) {
+        this.finish(2)
       }
     },
   },
@@ -50,5 +50,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="scss"></style>

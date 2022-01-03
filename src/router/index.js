@@ -9,11 +9,7 @@ const routes = [
     name: 'Home',
     component: () => import('../views/Home.vue'),
   },
-  {
-    path: '/survey1',
-    name: 'Survey1',
-    component: () => import('../views/Survey1.vue'),
-  },
+
   {
     path: '/survey2',
     name: 'Survey2',
