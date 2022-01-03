@@ -1,22 +1,39 @@
 <template>
   <div class="rate">
     <div v-for="index in 5" :key="index">
-      <img @mouseover="handleMouseEnter" src="../assets/star-regular.svg" />
+      <img
+        @click="rate(index)"
+        @mouseover="handleMouseEnter(index)"
+        @mouseout="handleMouseOut"
+        :src="userRate >= index || hovered >= index ? solidStar : regularStar"
+      />
     </div>
   </div>
 </template>
 src/assets/star-solid.svg
 
 <script>
+import RegularStar from '../assets/star-regular.svg'
+import SolidStar from '../assets/star-solid.svg'
+
 export default {
   data() {
     return {
-      hover: false,
+      hovered: null,
+      userRate: null,
+      regularStar: RegularStar,
+      solidStar: SolidStar,
     }
   },
   methods: {
-    handleMouseEnter() {
-      this.hover = true
+    handleMouseEnter(index) {
+      this.hovered = index
+    },
+    rate(index) {
+      this.userRate = index
+    },
+    handleMouseOut() {
+      this.hovered = null
     },
   },
 }
